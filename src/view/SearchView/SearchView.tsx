@@ -8,12 +8,13 @@ interface Props {
 }
 const CSearchView: React.FC<Props> = ({searchString}) => {
   const [movies, setMovies] = useState<INowPlaying>();
+
   useEffect(() => {
-    console.log("Movies", movies)
     searchForMovies(searchString).then(val => {
       setMovies(val)
     })
   }, [searchString])
+
   return <SSearchWrapper>
     {
       movies?.results.map((movie, index) => {
@@ -22,6 +23,7 @@ const CSearchView: React.FC<Props> = ({searchString}) => {
             <MovieCard movie={movie} isVerticalPoster={false} />
           </SMovieCard>
         }
+        return <></>
       })
     }
   </SSearchWrapper>
