@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { fetchMovieDetails } from '../../service/API';
 import { SCorousel } from '../../App.style';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlay, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 type IMovie = {
   backdrop_path: string,
   poster_path?: string,
   popularity?: number,
   release_date?: string,
-  adult?: boolean
+  adult?: boolean,
+  title: string,
+  overview: string
 }
 
 function Corousel() {
@@ -18,12 +21,20 @@ function Corousel() {
       setMovie(response)
     })
   }, [])
-  const getMovieUrl = (path: string) => {
-    return `url("${process.env.REACT_APP_IMAGE_URL}/original/${path}")`
-  }
   return <SCorousel style={{    
-    backgroundImage: movie ? getMovieUrl(movie?.backdrop_path) : ""
+    background: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("${process.env.REACT_APP_IMAGE_URL}/original/${movie?.backdrop_path}")`
   }}>
+    <div>
+      <h2>{movie?.title}</h2>
+      <p className="overview">
+        {movie?.overview}
+      </p>
+      <div>
+        <button className="play_button">
+         <FontAwesomeIcon icon={faPlay} /> PLAY</button>
+        <button className="my_list"> <FontAwesomeIcon icon={faInfoCircle} /> MORE INFO</button>
+      </div>
+    </div>
   </SCorousel>
 }
 

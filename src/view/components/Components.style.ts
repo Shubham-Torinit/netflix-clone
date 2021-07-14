@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 export const SBody = styled.div`
   width: 100%;
-  margin-top: 68px;
 `
 
 export const SMoviePoster = styled.img`
@@ -15,22 +14,30 @@ export const SMoviePoster = styled.img`
 
 export const SSwiper = styled.div`
   .swiper-wrapper {
-      padding: 20px 0 0;
+      padding: 20px 0 20px;
+  }
+  .swiper-button-prev, .swiper-button-next {
+    color: #fff !important;
   }
   .swiper-slide {
     transition: 250ms all;
 
     &:hover {
-        transform: scale(1.05);
+        transform: scale(1.2);
         z-index: 1;
     }
 
     &:first-child:hover{
-        margin: 0 -40px;
+        margin: 0 -100px;
     }
 
     &:last-child:hover{
         margin:0 -10px;
+    }
+  }
+  @media (max-width: 400px) {
+    .swiper-button-next:after, .swiper-button-prev:after {
+      font-size: 20px !important;
     }
   }
 `
@@ -103,6 +110,10 @@ export const SMovieDetail = styled.div`
       border-radius: 2px;
       outline: none;
       margin-right: 10px;
+      > svg {
+        padding-right: 5px;
+        margin-top: 1px;
+      }
     }
     .play_button {
       background: red;
@@ -111,5 +122,50 @@ export const SMovieDetail = styled.div`
       background: transparent;
       border: 1px solid #f1f1f1;
     }
+  }
+`
+
+export const SDropDownMenu = styled.div`
+  position: relative;
+  .menu_card {
+    background-color: rgb(20, 20, 20);
+    min-width: 150px;
+    margin-left: -100px;
+    top: 20px;
+    position: absolute;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 900;
+  }
+`
+export const SMenuItems = styled.div`
+  > ul {
+    font-size: 12px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    > li {  
+      list-style-type: none;
+      padding: 5px 20px;
+      text-align: left;
+    }
+    li:hover {
+      font-weight: bold;
+      color: gray;
+    }
+    .divider {
+      border-bottom: solid 1px #f4f4f4;
+      padding: 0;
+    }
+  }
+
+`
+export const SMenuParent = styled.div`
+  display: flex;
+  padding: 0;
+  font-size: 12px;
+  align-items: center;
+  > img {
+    width: 30px;
+    margin-right: 5px;
   }
 `

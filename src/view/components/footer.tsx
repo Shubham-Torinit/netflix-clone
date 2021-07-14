@@ -1,10 +1,10 @@
 import React from 'react';
-
+import { SFooter } from '../../App.style'
 function Footer() {
   return (
-    <div className="footer">
-      <p>Footer</p>
-    </div>
+    <SFooter>
+      <p>Developed By Shubham Vyas</p>
+    </SFooter>
   );
 }
 

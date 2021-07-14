@@ -1,10 +1,10 @@
 import React from 'react';
-import { Swiper, SwiperSlide } from "swiper/react";
-import MovieCard from './MovieCards';
-import { MovieDetails } from '../../modals/Modal';
 // Import Swiper styles
 import "swiper/swiper.min.css";
 import "swiper/components/navigation/navigation.min.css"
+import { Swiper, SwiperSlide } from "swiper/react";
+import MovieCard from './MovieCards';
+import { MovieDetails } from '../../modals/Modal';
 import { SSwiper } from './Components.style';
 // import Swiper core and required modules
 import SwiperCore, {
@@ -30,13 +30,16 @@ const Swipper: React.FC<Props> = ({movies, isVerticalPoster, spaceBetweenImg, im
         spaceBetween={spaceBetweenImg || 10}
         breakpoints={{
           280: {
-            slidesPerView: 2,
+            slidesPerView: isVerticalPoster ? 2 : 1,
+            slidesPerGroup: isVerticalPoster ? 2 : 1
           },
           450: {
-            slidesPerView: isVerticalPoster ? 3 : 2
+            slidesPerView: isVerticalPoster ? 3 : 2,
+            slidesPerGroup: isVerticalPoster ? 3 : 2
           },
           800: {
-            slidesPerView: isVerticalPoster ? 4 : 3
+            slidesPerView: isVerticalPoster ? 4 : 3,
+            slidesPerGroup: isVerticalPoster ? 4 : 3
           },
           1264: {
             slidesPerView: imagesPerView || 6
@@ -45,7 +48,7 @@ const Swipper: React.FC<Props> = ({movies, isVerticalPoster, spaceBetweenImg, im
           {
             movies.map((val, index) => {
               if (val.poster_path && val.backdrop_path) {
-                return <SwiperSlide key={index}>
+                return <SwiperSlide key={index.toString()}>
                   <MovieCard movie={val}  isVerticalPoster={isVerticalPoster}/>
                 </SwiperSlide>
               }

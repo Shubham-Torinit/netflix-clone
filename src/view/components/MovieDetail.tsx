@@ -13,7 +13,7 @@ const CMovieDetail: React.FC<Props> = ({movie}) => {
     backgroundSize: "contain"
   }}>
     <div className="detail_card">
-      <h1>{movie.title}</h1>
+      <h1>{movie.title ? movie.title : movie.name}</h1>
       <p>
         {movie.overview}
       </p>

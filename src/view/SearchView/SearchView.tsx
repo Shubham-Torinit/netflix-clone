@@ -19,7 +19,7 @@ const CSearchView: React.FC<Props> = ({searchString}) => {
     {
       movies?.results.map((movie, index) => {
         if (movie.poster_path && movie.backdrop_path) {
-          return <SMovieCard key={index} className="movie_card">
+          return <SMovieCard key={index.toString()} className="movie_card">
             <MovieCard movie={movie} isVerticalPoster={false} />
           </SMovieCard>
         }

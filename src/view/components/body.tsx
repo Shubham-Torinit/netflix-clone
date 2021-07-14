@@ -8,10 +8,9 @@ import CNowPlaying from '../NowPlaying/NowPlaying';
 import CSearchView from '../SearchView/SearchView';
 import { RootStore } from '../../store/store';
 import {useSelector} from "react-redux";
-
+import CTvShows from '../TvShows/TvShows';
 function Body() {
   const searchKeyState = useSelector((state: RootStore) => state.searchKey);
-  console.log("searchKeyState", searchKeyState)
   return (
     <SBody>
        {
@@ -25,6 +24,7 @@ function Body() {
         <CNowPlaying />
         <CUpcomingMovies />
         <TopRated />
+        <CTvShows />
       </div>
     </SBody>
   );

@@ -37,3 +37,8 @@ export const searchForMovies = async (searchString: string) => {
   const url = `${baseUrl}/search/movie?query=${searchString}&api_key=${apiKey}`
   return (await fetch(url)).json()
 }
+
+export const fetchTvShows = async () => {
+  const url = `${baseUrl}/tv/popular?api_key=${apiKey}`
+  return (await fetch(url)).json()
+}

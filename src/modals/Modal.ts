@@ -34,7 +34,13 @@ export type INowPlaying = {
   total_pages: number,
   total_results: number
 }
-
+export type ITvShows = {
+  page: number,
+  date?: {},
+  results: MovieDetails[],
+  total_pages: number,
+  total_results: number
+}
 export type MovieDetails = {
   adult: boolean,
   backdrop_path: string,
@@ -49,5 +55,7 @@ export type MovieDetails = {
   title: string,
   video?: boolean,
   vote_average?: number,
-  vote_count?: number
+  vote_count?: number,
+  original_name?: string,
+  name?: string
 }
