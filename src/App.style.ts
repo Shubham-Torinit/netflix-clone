@@ -5,6 +5,7 @@ export const LayoutStyle = styled.div`
   background-color: #141414;
   min-width: 100%;
   font-family: 'Poppins', sans-serif;
+  overflow: hidden;
 `
 
 export const HeaderStyle = styled.div`
@@ -218,7 +219,7 @@ export const SSearchWrapper = styled.div`
     overflow: auto;
   }
   .movie_card:hover {
-    transform: scale(1.5);
+    transform: scale(1.2);
     padding: 0px;
   }
 `
